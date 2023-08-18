@@ -1,12 +1,12 @@
-// YOUR_BASE_DIRECTORY/netlify/functions/api.ts
-
 import express, { Router } from 'express';
 import serverless from 'serverless-http';
+import jokesData from '../../data/jokes.json';
 
 const api = express();
 
 const router = Router();
 router.get('/hello', (req, res) => res.send('Hello World!'));
+router.get('/jokes', (req, res) => res.json(jokesData));
 
 api.use('/api/', router);
 
